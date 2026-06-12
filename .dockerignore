@@ -1,0 +1,7 @@
+table_eval/
+.git/
+build/
+install/
+log/
+**/*.db3
+**/*.bag

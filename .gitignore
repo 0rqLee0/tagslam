@@ -1,0 +1,3 @@
+# build / runtime artifacts (not source)
+.docker_ws/
+out.bag/

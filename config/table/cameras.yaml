@@ -1,0 +1,15 @@
+# D455 color camera for the ov_plane "Table" dataset.
+#
+# Intrinsics/distortion taken from the OpenVINS kalibr calibration used to
+# produce the baseline trajectories (kalibr_imucam_chain.yaml), so TagSLAM and
+# the odometry share the same camera model. If tag reprojection looks off,
+# cross-check against the bag's /d455/color/camera_info.
+cam0:
+  camera_model: pinhole
+  intrinsics: [418.9761, 418.5735, 420.6704, 237.0419]
+  distortion_model: radtan
+  distortion_coeffs: [-0.057359, 0.069201, -0.000809, 0.000624, -0.021814]
+  resolution: [848, 480]
+  image_topic: /d455/color/image_raw
+  tag_topic: /detector/tags             # output of checkerboard_to_apriltag.py
+  rig_body: rig

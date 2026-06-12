@@ -1,0 +1,29 @@
+# Camera-to-rig extrinsics for the Table dataset.
+#
+# The rig body is the IMU (OpenVINS reports the IMU pose on /ov_msckf/odomimu),
+# so cam0's pose in the rig frame == kalibr T_imu_cam (camera pose in the IMU
+# frame) from kalibr_imucam_chain.yaml:
+#   R = [[0.99973,-0.00988,-0.02105],[0.01025,0.99980,0.01727],[0.02087,-0.01748,0.99963]]
+#   t = [-0.029257, -0.009112, 0.043656]
+# rotation below is the angle-axis (Rodrigues) vector of R (|theta|~0.029 rad).
+# R (6x6) is the information matrix: large diagonal = extrinsics held fixed.
+#
+# NOTE: verify the convention direction (pose-of-cam-in-body) on the first run
+# via rviz / tag reprojection. If poses are inconsistent, invert (use T_cam_imu).
+cam0:
+  pose:
+    position:
+      x: -0.0292570134134059
+      y: -0.0091120938305969
+      z: 0.0436561894034853
+    rotation:
+      x: -0.0173738
+      y: -0.0209630
+      z: 0.0100673
+    R:
+      [ 1000000.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+        0.0, 1000000.0, 0.0, 0.0, 0.0, 0.0,
+        0.0, 0.0, 1000000.0, 0.0, 0.0, 0.0,
+        0.0, 0.0, 0.0, 1000000.0, 0.0, 0.0,
+        0.0, 0.0, 0.0, 0.0, 1000000.0, 0.0,
+        0.0, 0.0, 0.0, 0.0, 0.0, 1000000.0 ]
